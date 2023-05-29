@@ -1,0 +1,20 @@
+<div class="row justify-content-between">
+    <div class="col-lg-9">
+        <ng-container *ngIf="page$ | async as page">
+            <app-post-preview *ngFor="let post of page.posts" [post]="post" class="mb-5 d-block"></app-post-preview>
+            <div class="d-flex justify-content-center mt-3">
+                <pagination [totalItems]="page.total_count" [itemsPerPage]="postsPerPage" [maxSize]="5"
+                    [ngModel]="pageNum" (pageChanged)="onPageChange($event)"></pagination>
+            </div>
+        </ng-container>
+    </div>
+    <div class="col" style="max-width: 200px;">
+        <div *ngIf="categories$ | async as categories" class="list-group">
+            <a *ngFor="let cat of categories" class="list-group-item list-group-item-action" 
+                [class.active]="cat._id === category" [routerLink]="[]" [queryParams]="{ category: cat._id }"
+                aria-current="true">
+                {{cat.name | titlecase}}
+            </a>
+        </div>
+    </div>
+</div>

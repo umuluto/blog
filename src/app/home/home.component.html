@@ -1,0 +1,20 @@
+<app-header [main]="true"></app-header>
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <a routerLink="/latest" routerLinkActive="active" class="nav-link">Home</a>
+    </li>
+    <ng-container *ngIf="auth$ | async">
+        <li class="nav-item">
+            <a routerLink="/new-post" routerLinkActive="active" class="nav-link">New Post</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/my-posts" routerLinkActive="active" class="nav-link">My Posts</a>
+        </li>
+        <li class="nav-item">
+            <a routerLink="/favorites" routerLinkActive="active" class="nav-link">Favorites</a>
+        </li>
+    </ng-container>
+</ul>
+<div class="mt-4">
+    <router-outlet></router-outlet>
+</div>

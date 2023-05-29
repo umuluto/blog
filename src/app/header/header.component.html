@@ -1,0 +1,10 @@
+<header class="mt-4 d-flex justify-content-between" [class]="main ? 'mb-4' : 'mb-5'">
+    <a routerLink="/" class="fw-bold text-decoration-none" [class]="main ? 'fs-1 text-dark' : 'fs-4'">My Blog</a>
+    <button *ngIf="auth$ | async; else elseBlock" class="btn btn-link" (click)="onLogout()">Logout</button>
+    <ng-template #elseBlock>
+        <div class="d-flex gap-3">
+            <a *ngIf="!isLogin" routerLink="/login">Login</a>
+            <a *ngIf="!isRegister" routerLink="/register">Register</a>
+        </div>
+    </ng-template>
+</header>

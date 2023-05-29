@@ -1,0 +1,60 @@
+@import 'bootstrap/scss/bootstrap';
+
+quill-editor#inputContent {
+    border: $input-border-color $input-border-width solid;
+    border-radius: $input-border-radius;
+    transition: $input-transition;
+
+    &:focus-within {
+        border-color: $input-focus-border-color;
+        box-shadow: $input-focus-box-shadow;
+    }
+
+    &.is-valid {
+        border-color: $form-feedback-valid-color;
+
+        .ql-toolbar {
+            border-color: $form-feedback-valid-color;
+        }
+
+        &:focus-within {
+            box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba($form-feedback-valid-color, $input-btn-focus-color-opacity);
+        }
+    }
+
+    &.is-invalid {
+        border-color: $form-feedback-invalid-color;
+
+        .ql-toolbar {
+            border-color: $form-feedback-invalid-color;
+        }
+
+        &:focus-within {
+            box-shadow: 0 0 $input-btn-focus-blur $input-focus-width rgba($form-feedback-invalid-color, $input-btn-focus-color-opacity);
+        }
+    }
+
+    .ql-toolbar,
+    .ql-container {
+        border: none;
+    }
+
+    .ql-toolbar {
+        border-bottom: $input-border-color $input-border-width solid;
+    }
+
+    .ql-container {
+        box-shadow: $input-box-shadow;
+    }
+}
+
+button.reset {
+    background-color: transparent;
+    border-width: 0;
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    padding: 0;
+}

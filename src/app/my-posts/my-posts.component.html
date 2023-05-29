@@ -1,0 +1,16 @@
+<div class="row">
+    <div class="col-lg-9">
+        <ng-container *ngIf="page$ | async as page">
+            <div *ngFor="let post of page.posts" class="d-flex align-items-center w-100 mb-5">
+                <app-post-preview [post]="post" class="flex-grow-1"></app-post-preview>
+                <button (click)="deletePost(post)" type="button" class="btn btn-danger mt-2">
+                    <i class="bi bi-trash-fill"></i>
+                </button>
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+                <pagination [totalItems]="page.total_count" [itemsPerPage]="postsPerPage" [maxSize]="5"
+                    [ngModel]="pageNum$ | async" (pageChanged)="onPageChange($event)"></pagination>
+            </div>
+        </ng-container>
+    </div>
+</div>

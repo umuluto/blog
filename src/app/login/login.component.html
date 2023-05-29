@@ -1,0 +1,23 @@
+<app-header></app-header>
+<div class="card mx-auto" style="max-width: 800px;">
+    <div class="card-header">Login</div>
+    <div class="card-body">
+        <form [formGroup]="formCtrl" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label for="inputUsername" class="form-label">Username</label>
+                <input appFormCtrl formControlName="username" class="form-control" id="inputUsername">
+                <div class="invalid-feedback">
+                    Username is required
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="inputPassword" class="form-label">Password</label>
+                <input appFormCtrl formControlName="password" type="password" class="form-control" id="inputPassword">
+                <div class="invalid-feedback">
+                    Password is required
+                </div>
+            </div>
+            <app-submit-btn [status]="status"></app-submit-btn>
+        </form>
+    </div>
+</div>

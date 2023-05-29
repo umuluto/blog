@@ -1,0 +1,10 @@
+<div class="d-flex gap-3">
+    <button type="button" [disabled]="!auth" (click)="onLike()" class="reset">
+        <i class="bi" [class.bi-star]="!post?.liked" [class.bi-star-fill]="post?.liked"></i>
+        {{post?.likes ?? 0}}
+    </button>
+    <div>
+        <i class="bi bi-eye"></i>
+        {{post?.views ?? 0}}
+    </div>
+</div>

@@ -1,0 +1,7 @@
+<button [disabled]="status !== null" [class.btn-success]="status === 'success'" type="submit" class="btn btn-primary">
+    Submit
+    <div *ngIf="status === 'loading'" class="spinner-border spinner-border-sm" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+    <i *ngIf="status === 'success'" class="bi bi-check-lg"></i>
+</button>

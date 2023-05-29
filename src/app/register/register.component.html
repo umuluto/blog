@@ -1,0 +1,21 @@
+<app-header></app-header>
+<div class="card mx-auto" style="max-width: 800px;">
+    <div class="card-header">Register</div>
+    <div class="card-body">
+        <form ngNativeValidate [formGroup]="formCtrl">
+            <div class="mb-3">
+                <label for="inputFullname" class="form-label">Full name</label>
+                <input formControlName="fullname" class="form-control" id="inputFullname" required>
+            </div>
+            <div class="mb-3">
+                <label for="inputUsername" class="form-label">Username</label>
+                <input formControlName="username" class="form-control" id="inputUsername" required>
+            </div>
+            <div class="mb-3">
+                <label for="inputPassword" class="form-label">Password</label>
+                <input formControlName="password" type="password" class="form-control" id="inputPassword" required minlength="8">
+            </div>
+            <app-submit-btn (click)="onSubmit()"></app-submit-btn>
+        </form>
+    </div>
+</div>

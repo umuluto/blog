@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="col-lg-9">
+        <ng-container *ngIf="page$ | async as page">
+            <app-post-preview *ngFor="let post of page.posts" [post]="post" class="me-4"></app-post-preview>
+            <div class="d-flex justify-content-center mt-3">
+                <pagination [totalItems]="page.total_count" [itemsPerPage]="postsPerPage" [maxSize]="5"
+                    [ngModel]="pageNum$ | async" (pageChanged)="onPageChange($event)"></pagination>
+            </div>
+        </ng-container>
+    </div>
+</div>

@@ -1,0 +1,18 @@
+<div class="container-fluid p-0">
+    <div class="row g-3">
+        <div class="col-sm-auto">
+            <img [src]="post.picture ?? 'public/user/images/placeholder.jpg'" alt="placeholder" width="220" height="220"
+                class="w-100 w-sm-auto" style="object-fit: cover;">
+        </div>
+        <div class="col-12 order-sm-first">
+            <a [routerLink]="['/posts', post._id]" class="fw-bold text-decoration-none">{{post.title}}</a>
+        </div>
+        <div class="col d-flex flex-column justify-content-between">
+            {{post.description}}
+            <div class="mt-auto d-flex justify-content-between">
+                <span class="text-muted">{{post.createdAt | date}}</span>
+                <app-post-interactions [post]="post"></app-post-interactions>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<app-header></app-header>
+<div *ngIf="post$ | async as post" class="mt-4 d-flex flex-column" style="max-width: 1000px;">
+    <div class="d-flex justify-content-between align-items-center">
+        <h1>{{post.title}}</h1>
+        <a *ngIf="isAuthor$ | async" routerLink="edit">
+            Edit post 
+            <i class="bi bi-pen-fill"></i>
+        </a>
+    </div>
+    <quill-view-html [content]="post.content"></quill-view-html>
+    <app-post-interactions [post]="post" class="align-self-end"></app-post-interactions>
+</div>
